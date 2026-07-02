@@ -13,6 +13,7 @@
         <module>service-registry</module>
         <module>config-server</module>
         <module>common-library</module>
+        <module>auth-service</module>
         <module>user-service</module>
         <module>truck-service</module>
         <module>shipment-service</module>
