@@ -37,5 +37,5 @@ public class Otp {
 
     @CreationTimestamp
     @Column(updatable = false)
-    private LocalDateTime createdAt;
+    private LocalDateTime  createdAt;
 }
