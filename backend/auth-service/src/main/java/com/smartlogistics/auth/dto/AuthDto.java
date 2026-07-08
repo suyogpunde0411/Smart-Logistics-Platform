@@ -44,7 +44,16 @@ public record AuthDto() {
             @NotBlank String identifier,
             @NotBlank String otp
     ) {}
+    public record VerifyEmailRequest(
+            @NotBlank String token
+    ) {}
     
+    public record MeResponse(
+            String email,
+            String phone,
+            java.util.Set<String> roles
+    ) {}
+
     public record AuthResponse(
             String accessToken,
             String refreshToken,

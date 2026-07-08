@@ -1,4 +1,5 @@
 C:\Users\Suyog\Desktop\Projects\smart-logistics-platform\backend\auth-service\src\main\java\com\smartlogistics\auth\AuthServiceApplication.java
+C:\Users\Suyog\Desktop\Projects\smart-logistics-platform\backend\auth-service\src\main\java\com\smartlogistics\auth\config\RedisConfig.java
 C:\Users\Suyog\Desktop\Projects\smart-logistics-platform\backend\auth-service\src\main\java\com\smartlogistics\auth\controller\AuthController.java
 C:\Users\Suyog\Desktop\Projects\smart-logistics-platform\backend\auth-service\src\main\java\com\smartlogistics\auth\domain\entity\EmailVerificationToken.java
 C:\Users\Suyog\Desktop\Projects\smart-logistics-platform\backend\auth-service\src\main\java\com\smartlogistics\auth\domain\entity\LoginAttempt.java
@@ -20,7 +21,15 @@ C:\Users\Suyog\Desktop\Projects\smart-logistics-platform\backend\auth-service\sr
 C:\Users\Suyog\Desktop\Projects\smart-logistics-platform\backend\auth-service\src\main\java\com\smartlogistics\auth\domain\repository\UserSessionRepository.java
 C:\Users\Suyog\Desktop\Projects\smart-logistics-platform\backend\auth-service\src\main\java\com\smartlogistics\auth\dto\ApiResponse.java
 C:\Users\Suyog\Desktop\Projects\smart-logistics-platform\backend\auth-service\src\main\java\com\smartlogistics\auth\dto\AuthDto.java
+C:\Users\Suyog\Desktop\Projects\smart-logistics-platform\backend\auth-service\src\main\java\com\smartlogistics\auth\exception\AccountDisabledException.java
+C:\Users\Suyog\Desktop\Projects\smart-logistics-platform\backend\auth-service\src\main\java\com\smartlogistics\auth\exception\AccountLockedException.java
+C:\Users\Suyog\Desktop\Projects\smart-logistics-platform\backend\auth-service\src\main\java\com\smartlogistics\auth\exception\EmailNotVerifiedException.java
 C:\Users\Suyog\Desktop\Projects\smart-logistics-platform\backend\auth-service\src\main\java\com\smartlogistics\auth\exception\GlobalExceptionHandler.java
+C:\Users\Suyog\Desktop\Projects\smart-logistics-platform\backend\auth-service\src\main\java\com\smartlogistics\auth\exception\InvalidCredentialsException.java
+C:\Users\Suyog\Desktop\Projects\smart-logistics-platform\backend\auth-service\src\main\java\com\smartlogistics\auth\exception\OtpExpiredException.java
+C:\Users\Suyog\Desktop\Projects\smart-logistics-platform\backend\auth-service\src\main\java\com\smartlogistics\auth\exception\OtpInvalidException.java
+C:\Users\Suyog\Desktop\Projects\smart-logistics-platform\backend\auth-service\src\main\java\com\smartlogistics\auth\exception\ResourceNotFoundException.java
+C:\Users\Suyog\Desktop\Projects\smart-logistics-platform\backend\auth-service\src\main\java\com\smartlogistics\auth\exception\TokenExpiredException.java
 C:\Users\Suyog\Desktop\Projects\smart-logistics-platform\backend\auth-service\src\main\java\com\smartlogistics\auth\security\CustomUserDetails.java
 C:\Users\Suyog\Desktop\Projects\smart-logistics-platform\backend\auth-service\src\main\java\com\smartlogistics\auth\security\CustomUserDetailsService.java
 C:\Users\Suyog\Desktop\Projects\smart-logistics-platform\backend\auth-service\src\main\java\com\smartlogistics\auth\security\JwtAuthenticationFilter.java

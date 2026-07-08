@@ -194,22 +194,219 @@
         }
       }
     }
-  ],
-  "variable": [
-    {
-      "key": "base_url",
-      "value": "http://localhost:8081",
-      "type": "string"
-    },
-    {
-      "key": "access_token",
-      "value": "",
-      "type": "string"
-    },
-    {
-      "key": "refresh_token",
-      "value": "",
-      "type": "string"
+  ,
+  {
+    "name": "6. Reset Password",
+    "request": {
+      "method": "POST",
+      "header": [
+        {
+          "key": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "body": {
+        "mode": "raw",
+        "raw": "{\n  \"token\": \"YOUR_RESET_TOKEN\",\n  \"newPassword\": \"NewSecurePassword123!\"\n}"
+      },
+      "url": {
+        "raw": "{{base_url}}/api/v1/auth/reset-password",
+        "host": [
+          "{{base_url}}"
+        ],
+        "path": [
+          "api",
+          "v1",
+          "auth",
+          "reset-password"
+        ]
+      }
     }
-  ]
+  },
+  {
+    "name": "7. Change Password",
+    "request": {
+      "method": "POST",
+      "header": [
+        {
+          "key": "Content-Type",
+          "value": "application/json"
+        },
+        {
+          "key": "Authorization",
+          "value": "Bearer {{access_token}}"
+        }
+      ],
+      "body": {
+        "mode": "raw",
+        "raw": "{\n  \"currentPassword\": \"SecurePassword123!\",\n  \"newPassword\": \"NewSecurePassword123!\"\n}"
+      },
+      "url": {
+        "raw": "{{base_url}}/api/v1/auth/change-password",
+        "host": [
+          "{{base_url}}"
+        ],
+        "path": [
+          "api",
+          "v1",
+          "auth",
+          "change-password"
+        ]
+      }
+    }
+  },
+  {
+    "name": "8. Send Email Verification",
+    "request": {
+      "method": "POST",
+      "header": [
+        {
+          "key": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "body": {
+        "mode": "raw",
+        "raw": "{\n  \"email\": \"driver@example.com\"\n}"
+      },
+      "url": {
+        "raw": "{{base_url}}/api/v1/auth/send-email-verification",
+        "host": [
+          "{{base_url}}"
+        ],
+        "path": [
+          "api",
+          "v1",
+          "auth",
+          "send-email-verification"
+        ]
+      }
+    }
+  },
+  {
+    "name": "9. Verify Email",
+    "request": {
+      "method": "POST",
+      "header": [
+        {
+          "key": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "body": {
+        "mode": "raw",
+        "raw": "{\n  \"token\": \"YOUR_VERIFICATION_TOKEN\"\n}"
+      },
+      "url": {
+        "raw": "{{base_url}}/api/v1/auth/verify-email",
+        "host": [
+          "{{base_url}}"
+        ],
+        "path": [
+          "api",
+          "v1",
+          "auth",
+          "verify-email"
+        ]
+      }
+    }
+  },
+  {
+    "name": "10. Send OTP",
+    "request": {
+      "method": "POST",
+      "header": [
+        {
+          "key": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "body": {
+        "mode": "raw",
+        "raw": "{\n  \"identifier\": \"driver@example.com\"\n}"
+      },
+      "url": {
+        "raw": "{{base_url}}/api/v1/auth/send-otp",
+        "host": [
+          "{{base_url}}"
+        ],
+        "path": [
+          "api",
+          "v1",
+          "auth",
+          "send-otp"
+        ]
+      }
+    }
+  },
+  {
+    "name": "11. Verify OTP",
+    "request": {
+      "method": "POST",
+      "header": [
+        {
+          "key": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "body": {
+        "mode": "raw",
+        "raw": "{\n  \"identifier\": \"driver@example.com\",\n  \"otp\": \"123456\"\n}"
+      },
+      "url": {
+        "raw": "{{base_url}}/api/v1/auth/verify-otp",
+        "host": [
+          "{{base_url}}"
+        ],
+        "path": [
+          "api",
+          "v1",
+          "auth",
+          "verify-otp"
+        ]
+      }
+    }
+  },
+  {
+    "name": "12. Get Me",
+    "request": {
+      "method": "GET",
+      "header": [
+        {
+          "key": "Authorization",
+          "value": "Bearer {{access_token}}"
+        }
+      ],
+      "url": {
+        "raw": "{{base_url}}/api/v1/auth/me",
+        "host": [
+          "{{base_url}}"
+        ],
+        "path": [
+          "api",
+          "v1",
+          "auth",
+          "me"
+        ]
+      }
+    }
+  }
+],
+"variable": [
+  {
+    "key": "base_url",
+    "value": "http://localhost:8081",
+    "type": "string"
+  },
+  {
+    "key": "access_token",
+    "value": "",
+    "type": "string"
+  },
+  {
+    "key": "refresh_token",
+    "value": "",
+    "type": "string"
+  }
+]
 }

@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 
 import java.util.stream.Collectors;
 
+import org.springframework.security.access.AccessDeniedException;
+
 @RestControllerAdvice
 public class GlobalExceptionHandler {
 
@@ -26,29 +28,38 @@ public class GlobalExceptionHandler {
                 .body(ApiResponse.error(errors, "VALIDATION_ERROR", request.getRequestURI()));
     }
 
-    @ExceptionHandler(RuntimeException.class)
-    public ResponseEntity<ApiResponse<Void>> handleRuntimeExceptions(
+    @ExceptionHandler({InvalidCredentialsException.class})
+    public ResponseEntity<ApiResponse<Void>> handleUnauthorized(
             RuntimeException ex, HttpServletRequest request) {
-        
-        HttpStatus status = HttpStatus.BAD_REQUEST;
-        String errorCode = "BAD_REQUEST";
-        
-        if (ex.getMessage() != null && ex.getMessage().contains("Invalid credentials")) {
-            status = HttpStatus.UNAUTHORIZED;
-            errorCode = "UNAUTHORIZED";
-        } else if (ex.getMessage() != null && ex.getMessage().contains("locked")) {
-            status = HttpStatus.FORBIDDEN;
-            errorCode = "ACCOUNT_LOCKED";
-        }
-        
-        return ResponseEntity.status(status)
-                .body(ApiResponse.error(ex.getMessage(), errorCode, request.getRequestURI()));
+        return ResponseEntity.status(HttpStatus.UNAUTHORIZED)
+                .body(ApiResponse.error(ex.getMessage(), "UNAUTHORIZED", request.getRequestURI()));
+    }
+
+    @ExceptionHandler({AccountLockedException.class, AccountDisabledException.class, AccessDeniedException.class})
+    public ResponseEntity<ApiResponse<Void>> handleForbidden(
+            RuntimeException ex, HttpServletRequest request) {
+        return ResponseEntity.status(HttpStatus.FORBIDDEN)
+                .body(ApiResponse.error(ex.getMessage(), "FORBIDDEN", request.getRequestURI()));
+    }
+
+    @ExceptionHandler({TokenExpiredException.class, OtpExpiredException.class})
+    public ResponseEntity<ApiResponse<Void>> handleExpired(
+            RuntimeException ex, HttpServletRequest request) {
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST)
+                .body(ApiResponse.error(ex.getMessage(), "EXPIRED", request.getRequestURI()));
+    }
+    
+    @ExceptionHandler({EmailNotVerifiedException.class, OtpInvalidException.class, ResourceNotFoundException.class, RuntimeException.class})
+    public ResponseEntity<ApiResponse<Void>> handleBadRequest(
+            RuntimeException ex, HttpServletRequest request) {
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST)
+                .body(ApiResponse.error(ex.getMessage(), "BAD_REQUEST", request.getRequestURI()));
     }
 
     @ExceptionHandler(Exception.class)
     public ResponseEntity<ApiResponse<Void>> handleAllExceptions(
             Exception ex, HttpServletRequest request) {
         return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
-                .body(ApiResponse.error("An unexpected error occurred", "INTERNAL_SERVER_ERROR", request.getRequestURI()));
+                .body(ApiResponse.error("An unexpected error occurred: " + ex.getMessage(), "INTERNAL_SERVER_ERROR", request.getRequestURI()));
     }
 }

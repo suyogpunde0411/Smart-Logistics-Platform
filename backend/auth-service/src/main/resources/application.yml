@@ -5,9 +5,9 @@ spring:
   application:
     name: auth-service
   datasource:
-    url: jdbc:postgresql://localhost:5432/auth_db
-    username: postgres
-    password: password
+    url: jdbc:postgresql://ep-still-cake-a79pw38a-pooler.ap-southeast-2.aws.neon.tech/neondb?user=neondb_owner&password=npg_ipZJY3E7wzcn&sslmode=require&channelBinding=require
+    username: neondb_owner
+    password: npg_ipZJY3E7wzcn
     driver-class-name: org.postgresql.Driver
   jpa:
     hibernate:
@@ -19,13 +19,17 @@ spring:
         dialect: org.hibernate.dialect.PostgreSQLDialect
   data:
     redis:
-      host: localhost
+      host: ultimate-gazelle-158752.upstash.io
       port: 6379
+      username: default
+      password: gQAAAAAAAmwgAAIgcDJiODgwN2ZjNjRiZmY0ZTM1OTQ0NWQxNjdiODRhYWM5NQ
+      ssl:
+        enabled: true
   mail:
-    host: smtp.mailtrap.io
-    port: 2525
-    username: mock_user
-    password: mock_password
+    host: smtp-relay.brevo.com
+    port: 587
+    username: b14c18001@smtp-brevo.com
+    password: vnd39RFMBLqU8NgO
     properties:
       mail:
         smtp:
@@ -33,6 +37,9 @@ spring:
           starttls:
             enable: true
 
+  cloud:
+    config:
+      enabled: false
 eureka:
   client:
     service-url:
