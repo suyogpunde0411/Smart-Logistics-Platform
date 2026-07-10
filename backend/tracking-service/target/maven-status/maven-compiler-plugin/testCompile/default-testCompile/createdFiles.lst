@@ -1,0 +1,5 @@
+com\smartlogistics\trackingservice\controller\TripControllerTest.class
+com\smartlogistics\trackingservice\service\GpsValidationTest.class
+com\smartlogistics\trackingservice\service\TripStateTest.class
+com\smartlogistics\trackingservice\service\EtaStrategyTest.class
+com\smartlogistics\trackingservice\service\TripServiceTest.class

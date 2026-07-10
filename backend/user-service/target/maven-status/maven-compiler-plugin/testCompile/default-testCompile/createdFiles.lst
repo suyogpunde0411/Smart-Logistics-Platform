@@ -1,0 +1,5 @@
+com\smartlogistics\userservice\service\UserServiceTest.class
+com\smartlogistics\userservice\controller\UserControllerTest.class
+com\smartlogistics\userservice\domain\repository\UserProfileRepositoryTest.class
+com\smartlogistics\userservice\validation\ValidationUtilsTest.class
+com\smartlogistics\userservice\config\FeignClientConfigTest.class

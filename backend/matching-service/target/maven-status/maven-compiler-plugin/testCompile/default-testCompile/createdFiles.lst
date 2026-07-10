@@ -1,0 +1,4 @@
+com\smartlogistics\matchingservice\service\MatchingServiceTest.class
+com\smartlogistics\matchingservice\service\strategy\RuleBasedMatchingStrategyTest.class
+com\smartlogistics\matchingservice\controller\MatchingControllerTest.class
+com\smartlogistics\matchingservice\service\BidServiceTest.class

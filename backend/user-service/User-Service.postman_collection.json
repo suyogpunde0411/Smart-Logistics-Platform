@@ -1,0 +1,339 @@
+{
+  "info": {
+    "name": "Smart Logistics User Service",
+    "description": "API collection for testing the Spring Boot User Service.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "1. Search Users",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{access_token}}"
+          }
+        ],
+        "url": {
+          "raw": "{{base_url_user}}/api/v1/users?page=0&size=20&sort=createdAt&direction=desc",
+          "host": [
+            "{{base_url_user}}"
+          ],
+          "path": [
+            "api",
+            "v1",
+            "users"
+          ],
+          "query": [
+            {
+              "key": "page",
+              "value": "0"
+            },
+            {
+              "key": "size",
+              "value": "20"
+            },
+            {
+              "key": "sort",
+              "value": "createdAt"
+            },
+            {
+              "key": "direction",
+              "value": "desc"
+            },
+            {
+              "key": "search",
+              "value": "driver",
+              "disabled": true
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "2. Get User Profile",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "var jsonData = pm.response.json();",
+              "if (jsonData.success && jsonData.data) {",
+              "    pm.environment.set(\"user_id\", jsonData.data.id);",
+              "}"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{access_token}}"
+          }
+        ],
+        "url": {
+          "raw": "{{base_url_user}}/api/v1/users/{{user_id}}",
+          "host": [
+            "{{base_url_user}}"
+          ],
+          "path": [
+            "api",
+            "v1",
+            "users",
+            "{{user_id}}"
+          ]
+        }
+      }
+    },
+    {
+      "name": "3. Update Basic User Profile",
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "key": "Authorization",
+            "value": "Bearer {{access_token}}"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"firstName\": \"John\",\n  \"lastName\": \"Doe\",\n  \"phone\": \"+1234567890\"\n}"
+        },
+        "url": {
+          "raw": "{{base_url_user}}/api/v1/users/{{user_id}}",
+          "host": [
+            "{{base_url_user}}"
+          ],
+          "path": [
+            "api",
+            "v1",
+            "users",
+            "{{user_id}}"
+          ]
+        }
+      }
+    },
+    {
+      "name": "4. List User Addresses",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{access_token}}"
+          }
+        ],
+        "url": {
+          "raw": "{{base_url_user}}/api/v1/users/{{user_id}}/addresses",
+          "host": [
+            "{{base_url_user}}"
+          ],
+          "path": [
+            "api",
+            "v1",
+            "users",
+            "{{user_id}}",
+            "addresses"
+          ]
+        }
+      }
+    },
+    {
+      "name": "5. Add New Address",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "key": "Authorization",
+            "value": "Bearer {{access_token}}"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"line1\": \"123 Main St\",\n  \"line2\": \"Apt 4B\",\n  \"city\": \"Sydney\",\n  \"state\": \"NSW\",\n  \"zip\": \"2000\",\n  \"country\": \"Australia\",\n  \"type\": \"HOME\"\n}"
+        },
+        "url": {
+          "raw": "{{base_url_user}}/api/v1/users/{{user_id}}/addresses",
+          "host": [
+            "{{base_url_user}}"
+          ],
+          "path": [
+            "api",
+            "v1",
+            "users",
+            "{{user_id}}",
+            "addresses"
+          ]
+        }
+      }
+    },
+    {
+      "name": "6. Update Driver Profile",
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "key": "Authorization",
+            "value": "Bearer {{access_token}}"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"licenseNumber\": \"DL987654321\",\n  \"licenseExpiry\": \"2030-12-31\",\n  \"experienceYears\": 5\n}"
+        },
+        "url": {
+          "raw": "{{base_url_user}}/api/v1/users/{{user_id}}/driver-profile",
+          "host": [
+            "{{base_url_user}}"
+          ],
+          "path": [
+            "api",
+            "v1",
+            "users",
+            "{{user_id}}",
+            "driver-profile"
+          ]
+        }
+      }
+    },
+    {
+      "name": "7. Update Business Profile",
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "key": "Authorization",
+            "value": "Bearer {{access_token}}"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"companyName\": \"Fast Freight Logistics\",\n  \"taxId\": \"22AAAAA0000A1Z5\",\n  \"website\": \"https://fastfreight.example.com\"\n}"
+        },
+        "url": {
+          "raw": "{{base_url_user}}/api/v1/users/{{user_id}}/business-profile",
+          "host": [
+            "{{base_url_user}}"
+          ],
+          "path": [
+            "api",
+            "v1",
+            "users",
+            "{{user_id}}",
+            "business-profile"
+          ]
+        }
+      }
+    },
+    {
+      "name": "8. Upload KYC Document",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{access_token}}"
+          }
+        ],
+        "body": {
+          "mode": "formdata",
+          "formdata": [
+            {
+              "key": "documentType",
+              "value": "DRIVERS_LICENSE",
+              "type": "text"
+            },
+            {
+              "key": "file",
+              "type": "file",
+              "src": []
+            }
+          ]
+        },
+        "url": {
+          "raw": "{{base_url_user}}/api/v1/users/{{user_id}}/documents",
+          "host": [
+            "{{base_url_user}}"
+          ],
+          "path": [
+            "api",
+            "v1",
+            "users",
+            "{{user_id}}",
+            "documents"
+          ]
+        }
+      }
+    },
+    {
+      "name": "9. Add Emergency Contact",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "key": "Authorization",
+            "value": "Bearer {{access_token}}"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"name\": \"Jane Doe\",\n  \"phone\": \"+19876543210\",\n  \"relationship\": \"SPOUSE\"\n}"
+        },
+        "url": {
+          "raw": "{{base_url_user}}/api/v1/users/{{user_id}}/emergency-contacts",
+          "host": [
+            "{{base_url_user}}"
+          ],
+          "path": [
+            "api",
+            "v1",
+            "users",
+            "{{user_id}}",
+            "emergency-contacts"
+          ]
+        }
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "base_url_user",
+      "value": "http://localhost:8082",
+      "type": "string"
+    },
+    {
+      "key": "user_id",
+      "value": "YOUR_USER_ID_HERE",
+      "type": "string"
+    },
+    {
+      "key": "access_token",
+      "value": "YOUR_ACCESS_TOKEN_HERE",
+      "type": "string"
+    }
+  ]
+}

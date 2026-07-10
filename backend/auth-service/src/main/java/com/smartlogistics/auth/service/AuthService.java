@@ -16,10 +16,13 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDateTime;
-import java.util.Optional;
+
 import java.util.Set;
 import java.util.UUID;
 import java.util.stream.Collectors;
+import com.smartlogistics.auth.dto.UserRegisteredEvent;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import org.springframework.kafka.core.KafkaTemplate;
 
 @Service
 @RequiredArgsConstructor
@@ -37,6 +40,8 @@ public class AuthService {
     private final JwtService jwtService;
     private final RedisService redisService;
     private final EmailService emailService;
+    private final KafkaTemplate<String, String> kafkaTemplate;
+    private final ObjectMapper objectMapper;
 
     @Value("${jwt.refresh-token-expiration}")
     private long refreshTokenDurationMs;
@@ -67,6 +72,18 @@ public class AuthService {
         
         // Auto send email verification
         sendEmailVerification(user.getEmail());
+
+        // Sync user via Kafka
+        try {
+            UserRegisteredEvent event = new UserRegisteredEvent(
+                    user.getId(), user.getEmail(), user.getPhone(), role.getName()
+            );
+            String eventJson = objectMapper.writeValueAsString(event);
+            kafkaTemplate.send("user-registration", user.getId().toString(), eventJson);
+            log.info("Successfully published UserRegisteredEvent to Kafka for user: {}", user.getEmail());
+        } catch (Exception e) {
+            log.error("Failed to publish UserRegisteredEvent to Kafka for user: {}", user.getEmail(), e);
+        }
 
         return createAuthResponse(user);
     }

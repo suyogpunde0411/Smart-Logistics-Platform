@@ -1,0 +1,3 @@
+com\smartlogistics\truckservice\controller\TruckControllerTest.class
+com\smartlogistics\truckservice\repository\TruckRepositoryTest.class
+com\smartlogistics\truckservice\service\TruckServiceTest.class

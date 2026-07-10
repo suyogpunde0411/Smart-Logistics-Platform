@@ -5,7 +5,7 @@ spring:
   application:
     name: auth-service
   datasource:
-    url: jdbc:postgresql://ep-still-cake-a79pw38a-pooler.ap-southeast-2.aws.neon.tech/neondb?user=neondb_owner&password=npg_ipZJY3E7wzcn&sslmode=require&channelBinding=require
+    url: jdbc:postgresql://ep-still-cake-a79pw38a-pooler.ap-southeast-2.aws.neon.tech/auth_db?user=neondb_owner&password=npg_ipZJY3E7wzcn&sslmode=require&channelBinding=require
     username: neondb_owner
     password: npg_ipZJY3E7wzcn
     driver-class-name: org.postgresql.Driver
@@ -36,7 +36,16 @@ spring:
           auth: true
           starttls:
             enable: true
-
+  kafka:
+    bootstrap-servers: ultimate-gazelle-158752.upstash.io:9092
+    properties:
+      "[sasl.mechanism]": SCRAM-SHA-256
+      "[security.protocol]": SASL_SSL
+      "[sasl.jaas.config]": 'org.apache.kafka.common.security.scram.ScramLoginModule required username="default" password="gQAAAAAAAmwgAAIgcDJiODgwN2ZjNjRiZmY0ZTM1OTQ0NWQxNjdiODRhYWM5NQ";'
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
+      
   cloud:
     config:
       enabled: false

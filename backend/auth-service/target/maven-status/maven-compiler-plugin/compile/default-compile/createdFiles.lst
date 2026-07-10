@@ -4,6 +4,7 @@ com\smartlogistics\auth\domain\entity\Permission.class
 com\smartlogistics\auth\controller\AuthController.class
 com\smartlogistics\auth\service\RedisService.class
 com\smartlogistics\auth\domain\entity\RefreshToken$RefreshTokenBuilder.class
+com\smartlogistics\auth\dto\UserRegisteredEvent.class
 com\smartlogistics\auth\exception\GlobalExceptionHandler.class
 com\smartlogistics\auth\domain\repository\PasswordResetTokenRepository.class
 com\smartlogistics\auth\dto\AuthDto$MeResponse.class
@@ -17,6 +18,7 @@ com\smartlogistics\auth\exception\AccountLockedException.class
 com\smartlogistics\auth\domain\entity\PasswordResetToken.class
 com\smartlogistics\auth\domain\entity\UserCredential$UserCredentialBuilder.class
 com\smartlogistics\auth\dto\AuthDto.class
+com\smartlogistics\auth\client\UserClient.class
 com\smartlogistics\auth\dto\AuthDto$LoginRequest.class
 com\smartlogistics\auth\domain\entity\UserCredential.class
 com\smartlogistics\auth\security\JwtAuthenticationFilter.class

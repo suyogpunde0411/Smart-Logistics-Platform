@@ -1,0 +1,57 @@
+server:
+  port: 8085
+
+spring:
+  application:
+    name: matching-service
+  config:
+    import: optional:configserver:${CONFIG_SERVER_URL:http://localhost:8888}
+  datasource:
+    url: ${MATCHING_DB_URL:jdbc:postgresql://localhost:5432/matching_db}
+    username: ${MATCHING_DB_USERNAME:postgres}
+    password: ${MATCHING_DB_PASSWORD:postgres}
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: false
+    properties:
+      hibernate:
+        format_sql: true
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+  kafka:
+    bootstrap-servers: ${KAFKA_BOOTSTRAP_SERVERS:localhost:9092}
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
+    consumer:
+      group-id: matching-service-group
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
+      properties:
+        spring.json.trusted.packages: "com.smartlogistics.*"
+  data:
+    redis:
+      host: ultimate-gazelle-158752.upstash.io
+      port: 6379
+      username: default
+      password: gQAAAAAAAmwgAAIgcDJiODgwN2ZjNjRiZmY0ZTM1OTQ0NWQxNjdiODRhYWM5NQ
+      ssl:
+        enabled: true
+
+eureka:
+  client:
+    service-url:
+      defaultZone: ${EUREKA_DEFAULT_ZONE:http://localhost:8761/eureka/}
+
+matching:
+  bid-expiry-scan-delay-ms: 300000
+  match-expiry-scan-delay-ms: 300000
+  default-bid-ttl-minutes: 60
+  default-match-ttl-minutes: 120
+
+springdoc:
+  api-docs:
+    path: /api-docs
+  swagger-ui:
+    path: /swagger-ui.html
