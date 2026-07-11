@@ -19,9 +19,13 @@ C:\Users\Suyog\Desktop\Projects\smart-logistics-platform\backend\common-library\
 C:\Users\Suyog\Desktop\Projects\smart-logistics-platform\backend\common-library\src\main\java\com\smartlogistics\common\event\BusinessProfileCompletedEvent.java
 C:\Users\Suyog\Desktop\Projects\smart-logistics-platform\backend\common-library\src\main\java\com\smartlogistics\common\config\KafkaConfig.java
 C:\Users\Suyog\Desktop\Projects\smart-logistics-platform\backend\common-library\src\main\java\com\smartlogistics\common\config\ResiliencyConfig.java
+C:\Users\Suyog\Desktop\Projects\smart-logistics-platform\backend\common-library\src\main\java\com\smartlogistics\common\config\FeignInterceptorConfig.java
+C:\Users\Suyog\Desktop\Projects\smart-logistics-platform\backend\common-library\src\main\java\com\smartlogistics\common\config\FeignConfig.java
 C:\Users\Suyog\Desktop\Projects\smart-logistics-platform\backend\common-library\src\main\java\com\smartlogistics\common\event\TruckRegisteredEvent.java
+C:\Users\Suyog\Desktop\Projects\smart-logistics-platform\backend\common-library\src\main\java\com\smartlogistics\common\config\FeignErrorDecoder.java
 C:\Users\Suyog\Desktop\Projects\smart-logistics-platform\backend\common-library\src\main\java\com\smartlogistics\common\filter\CorrelationIdFilter.java
 C:\Users\Suyog\Desktop\Projects\smart-logistics-platform\backend\common-library\src\main\java\com\smartlogistics\common\event\TripCompletedEvent.java
+C:\Users\Suyog\Desktop\Projects\smart-logistics-platform\backend\common-library\src\main\java\com\smartlogistics\common\filter\MdcLoggingFilter.java
 C:\Users\Suyog\Desktop\Projects\smart-logistics-platform\backend\common-library\src\main\java\com\smartlogistics\common\event\AnalyticsTripCompletedEvent.java
 C:\Users\Suyog\Desktop\Projects\smart-logistics-platform\backend\common-library\src\main\java\com\smartlogistics\common\client\AnalyticsFeignClient.java
 C:\Users\Suyog\Desktop\Projects\smart-logistics-platform\backend\common-library\src\main\java\com\smartlogistics\common\event\UserProfileCreatedEvent.java

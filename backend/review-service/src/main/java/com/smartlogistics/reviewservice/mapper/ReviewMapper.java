@@ -12,11 +12,20 @@ public interface ReviewMapper {
     Rating toEntity(ReviewDto.ReviewRatingDto request);
     ReviewDto.ReviewRatingDto toDto(Rating rating);
 
+    @org.mapstruct.Mapping(target = "reviewerId", ignore = true)
+    @org.mapstruct.Mapping(target = "status", ignore = true)
+    @org.mapstruct.Mapping(target = "replies", ignore = true)
+    @org.mapstruct.Mapping(target = "reports", ignore = true)
     Review toEntity(ReviewDto.CreateRequest request);
+    
     ReviewDto.ReviewResponse toDto(Review review);
 
+    @org.mapstruct.Mapping(target = "reviewId", source = "review.id")
     ReviewReplyDto.ReviewReplyResponse toDto(ReviewReply reply);
+    
+    @org.mapstruct.Mapping(target = "reviewId", source = "review.id")
     ReviewReportDto.ReviewReportResponse toDto(ReviewReport report);
+    
     ReviewDisputeDto.ReviewDisputeResponse toDto(ReviewDispute dispute);
 
     TrustScoreDto.TrustScoreResponse toDto(TrustScore trustScore);

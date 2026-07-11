@@ -45,10 +45,19 @@ public class KafkaConfig {
 
     @Bean
     @ConditionalOnMissingBean(name = "kafkaListenerContainerFactory")
-    public ConcurrentKafkaListenerContainerFactory<String, Object> kafkaListenerContainerFactory() {
+    public ConcurrentKafkaListenerContainerFactory<String, Object> kafkaListenerContainerFactory(KafkaTemplate<String, Object> template) {
         ConcurrentKafkaListenerContainerFactory<String, Object> factory =
                 new ConcurrentKafkaListenerContainerFactory<>();
         factory.setConsumerFactory(consumerFactory());
+        
+        // Retry & DLQ handling: 3 attempts backoff, then publish to {topic}.DLT
+        org.springframework.kafka.listener.DefaultErrorHandler errorHandler =
+                new org.springframework.kafka.listener.DefaultErrorHandler(
+                        new org.springframework.kafka.listener.DeadLetterPublishingRecoverer(template),
+                        new org.springframework.util.backoff.FixedBackOff(1000L, 2)
+                );
+        
+        factory.setCommonErrorHandler(errorHandler);
         return factory;
     }
 }

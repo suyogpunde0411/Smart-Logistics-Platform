@@ -27,8 +27,8 @@ import org.springframework.stereotype.Component;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2026-07-11T09:46:29+0530",
-    comments = "version: 1.5.5.Final, compiler: javac, environment: Java 22.0.2 (Oracle Corporation)"
+    date = "2026-07-11T20:39:38+0530",
+    comments = "version: 1.5.5.Final, compiler: Eclipse JDT (IDE) 3.46.100.v20260624-0231, environment: Java 21.0.11 (Eclipse Adoptium)"
 )
 @Component
 public class TripMapperImpl implements TripMapper {
@@ -338,14 +338,14 @@ public class TripMapperImpl implements TripMapper {
 
         TripRoute.TripRouteBuilder tripRoute = TripRoute.builder();
 
-        tripRoute.startAddress( request.startAddress() );
-        tripRoute.startLatitude( request.startLatitude() );
-        tripRoute.startLongitude( request.startLongitude() );
         tripRoute.endAddress( request.endAddress() );
         tripRoute.endLatitude( request.endLatitude() );
         tripRoute.endLongitude( request.endLongitude() );
         tripRoute.plannedDistanceKm( request.plannedDistanceKm() );
         tripRoute.plannedDurationHours( request.plannedDurationHours() );
+        tripRoute.startAddress( request.startAddress() );
+        tripRoute.startLatitude( request.startLatitude() );
+        tripRoute.startLongitude( request.startLongitude() );
 
         return tripRoute.build();
     }
@@ -358,13 +358,13 @@ public class TripMapperImpl implements TripMapper {
 
         TripCheckpoint.TripCheckpointBuilder tripCheckpoint = TripCheckpoint.builder();
 
-        tripCheckpoint.name( request.name() );
         tripCheckpoint.latitude( request.latitude() );
         tripCheckpoint.longitude( request.longitude() );
-        tripCheckpoint.sequenceIndex( request.sequenceIndex() );
-        tripCheckpoint.type( request.type() );
-        tripCheckpoint.status( request.status() );
+        tripCheckpoint.name( request.name() );
         tripCheckpoint.plannedArrivalTime( request.plannedArrivalTime() );
+        tripCheckpoint.sequenceIndex( request.sequenceIndex() );
+        tripCheckpoint.status( request.status() );
+        tripCheckpoint.type( request.type() );
 
         return tripCheckpoint.build();
     }
@@ -377,12 +377,12 @@ public class TripMapperImpl implements TripMapper {
 
         GpsLocation.GpsLocationBuilder gpsLocation = GpsLocation.builder();
 
+        gpsLocation.accuracy( request.accuracy() );
+        gpsLocation.altitude( request.altitude() );
+        gpsLocation.heading( request.heading() );
         gpsLocation.latitude( request.latitude() );
         gpsLocation.longitude( request.longitude() );
         gpsLocation.speedKmh( request.speedKmh() );
-        gpsLocation.heading( request.heading() );
-        gpsLocation.accuracy( request.accuracy() );
-        gpsLocation.altitude( request.altitude() );
         gpsLocation.timestamp( request.timestamp() );
 
         return gpsLocation.build();

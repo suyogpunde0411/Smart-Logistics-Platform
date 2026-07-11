@@ -25,8 +25,8 @@ import org.springframework.stereotype.Component;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2026-07-11T09:46:06+0530",
-    comments = "version: 1.5.5.Final, compiler: javac, environment: Java 22.0.2 (Oracle Corporation)"
+    date = "2026-07-11T20:39:41+0530",
+    comments = "version: 1.5.5.Final, compiler: Eclipse JDT (IDE) 3.46.100.v20260624-0231, environment: Java 21.0.11 (Eclipse Adoptium)"
 )
 @Component
 public class UserMapperImpl implements UserMapper {
@@ -156,13 +156,13 @@ public class UserMapperImpl implements UserMapper {
 
         Address.AddressBuilder address = Address.builder();
 
+        address.city( request.city() );
+        address.country( request.country() );
         address.line1( request.line1() );
         address.line2( request.line2() );
-        address.city( request.city() );
         address.state( request.state() );
-        address.zip( request.zip() );
-        address.country( request.country() );
         address.type( request.type() );
+        address.zip( request.zip() );
 
         return address.build();
     }
@@ -173,13 +173,13 @@ public class UserMapperImpl implements UserMapper {
             return;
         }
 
+        address.setCity( request.city() );
+        address.setCountry( request.country() );
         address.setLine1( request.line1() );
         address.setLine2( request.line2() );
-        address.setCity( request.city() );
         address.setState( request.state() );
-        address.setZip( request.zip() );
-        address.setCountry( request.country() );
         address.setType( request.type() );
+        address.setZip( request.zip() );
     }
 
     @Override
