@@ -1,0 +1,60 @@
+server:
+  port: 8088
+
+spring:
+  application:
+    name: review-service
+  config:
+    import: optional:configserver:${CONFIG_SERVER_URL:http://localhost:8888}
+  datasource:
+    url: jdbc:postgresql://ep-still-cake-a79pw38a-pooler.ap-southeast-2.aws.neon.tech/review_db?user=neondb_owner&password=npg_ipZJY3E7wzcn&sslmode=require&channelBinding=require
+    username: neondb_owner
+    password: npg_ipZJY3E7wzcn
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: false
+    properties:
+      hibernate:
+        format_sql: true
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+  kafka:
+    bootstrap-servers: ultimate-gazelle-158752.upstash.io:9092
+    properties:
+      "[sasl.mechanism]": SCRAM-SHA-256
+      "[security.protocol]": SASL_SSL
+      "[sasl.jaas.config]": 'org.apache.kafka.common.security.scram.ScramLoginModule required username="default" password="gQAAAAAAAmwgAAIgcDJiODgwN2ZjNjRiZmY0ZTM1OTQ0NWQxNjdiODRhYWM5NQ";'
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
+    consumer:
+      group-id: review-service-group
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
+      properties:
+        spring.json.trusted.packages: "com.smartlogistics.*"
+  data:
+    redis:
+      host: ultimate-gazelle-158752.upstash.io
+      port: 6379
+      username: default
+      password: gQAAAAAAAmwgAAIgcDJiODgwN2ZjNjRiZmY0ZTM1OTQ0NWQxNjdiODRhYWM5NQ
+      ssl:
+        enabled: true
+
+eureka:
+  client:
+    service-url:
+      defaultZone: ${EUREKA_DEFAULT_ZONE:http://localhost:8761/eureka/}
+
+logging:
+  level:
+    root: INFO
+    com.smartlogistics: DEBUG
+
+springdoc:
+  api-docs:
+    path: /api-docs
+  swagger-ui:
+    path: /swagger-ui.html

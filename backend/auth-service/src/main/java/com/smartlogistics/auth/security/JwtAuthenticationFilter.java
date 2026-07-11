@@ -1,6 +1,8 @@
 package com.smartlogistics.auth.security;
 
 import com.smartlogistics.auth.service.JwtService;
+
+import io.micrometer.common.lang.NonNull;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
