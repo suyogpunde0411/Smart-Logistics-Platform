@@ -13,7 +13,8 @@ import {
   Users,
   Wrench,
   Settings,
-  Headset
+  Headset,
+  FileText
 } from 'lucide-react';
 
 export const navigationConfig = {
@@ -33,6 +34,7 @@ export const navigationConfig = {
     { name: 'Matching', path: '/matching', icon: Network },
     { name: 'Tracking', path: '/tracking', icon: MapPin },
     { name: 'Analytics', path: '/analytics', icon: BarChart3 },
+    { name: 'Reports', path: '/reports', icon: FileText },
     { name: 'Profile', path: '/profile', icon: User },
   ],
   'Fleet Owner': [
@@ -41,6 +43,7 @@ export const navigationConfig = {
     { name: 'Drivers', path: '/drivers', icon: Users },
     { name: 'Trips', path: '/trips', icon: Map },
     { name: 'Analytics', path: '/analytics', icon: BarChart3 },
+    { name: 'Reports', path: '/reports', icon: FileText },
     { name: 'Maintenance', path: '/maintenance', icon: Wrench },
     { name: 'Profile', path: '/profile', icon: User },
   ],
@@ -51,6 +54,7 @@ export const navigationConfig = {
     { name: 'Shipments', path: '/admin/shipments', icon: Package },
     { name: 'Reviews', path: '/admin/reviews', icon: Network }, // Placeholder icon
     { name: 'Analytics', path: '/admin/analytics', icon: BarChart3 },
+    { name: 'Reports', path: '/reports', icon: FileText },
     { name: 'Settings', path: '/admin/settings', icon: Settings },
     { name: 'Support', path: '/admin/support', icon: Headset },
   ],

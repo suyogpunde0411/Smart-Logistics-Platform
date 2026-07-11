@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { lazy } from 'react';
 import { createBrowserRouter } from 'react-router-dom';
 import { ProtectedRoute } from './ProtectedRoute';
 
@@ -16,70 +16,75 @@ import { DashboardLayout } from '@/layouts/DashboardLayout';
 import { NotFound } from '@/components/common/NotFound';
 
 // Driver Pages
-import { DriverDashboardHome } from '@/features/driver/pages/DriverDashboardHome';
-import { DriverProfile } from '@/features/driver/pages/DriverProfile';
-import { DriverTruck } from '@/features/driver/pages/DriverTruck';
-import { AvailableShipments } from '@/features/driver/pages/AvailableShipments';
-import { DriverTrips } from '@/features/driver/pages/DriverTrips';
-import { LiveTracking } from '@/features/driver/pages/LiveTracking';
+const DriverDashboardHome = lazy(() => import('@/features/driver/pages/DriverDashboardHome').then(module => ({ default: module.DriverDashboardHome })));
+const DriverProfile = lazy(() => import('@/features/driver/pages/DriverProfile').then(module => ({ default: module.DriverProfile })));
+const DriverTruck = lazy(() => import('@/features/driver/pages/DriverTruck').then(module => ({ default: module.DriverTruck })));
+const AvailableShipments = lazy(() => import('@/features/driver/pages/AvailableShipments').then(module => ({ default: module.AvailableShipments })));
+const DriverTrips = lazy(() => import('@/features/driver/pages/DriverTrips').then(module => ({ default: module.DriverTrips })));
+const LiveTracking = lazy(() => import('@/features/driver/pages/LiveTracking').then(module => ({ default: module.LiveTracking })));
 
 // Business Owner Pages
-import { BusinessDashboardHome } from '@/features/business/pages/BusinessDashboardHome';
-import { MyShipments } from '@/features/business/pages/MyShipments';
-import { CreateShipmentWizard } from '@/features/business/pages/CreateShipmentWizard';
-import { BusinessMatching } from '@/features/business/pages/BusinessMatching';
-import { BusinessTracking } from '@/features/business/pages/BusinessTracking';
-import { BusinessAnalytics } from '@/features/business/pages/BusinessAnalytics';
-import { BusinessProfile } from '@/features/business/pages/BusinessProfile';
+const BusinessDashboardHome = lazy(() => import('@/features/business/pages/BusinessDashboardHome').then(module => ({ default: module.BusinessDashboardHome })));
+const MyShipments = lazy(() => import('@/features/business/pages/MyShipments').then(module => ({ default: module.MyShipments })));
+const CreateShipmentWizard = lazy(() => import('@/features/business/pages/CreateShipmentWizard').then(module => ({ default: module.CreateShipmentWizard })));
+const BusinessMatching = lazy(() => import('@/features/business/pages/BusinessMatching').then(module => ({ default: module.BusinessMatching })));
+const BusinessTracking = lazy(() => import('@/features/business/pages/BusinessTracking').then(module => ({ default: module.BusinessTracking })));
+const BusinessAnalytics = lazy(() => import('@/features/business/pages/BusinessAnalytics').then(module => ({ default: module.BusinessAnalytics })));
+const BusinessProfile = lazy(() => import('@/features/business/pages/BusinessProfile').then(module => ({ default: module.BusinessProfile })));
 
 // Fleet Owner Pages
-import { FleetDashboardHome } from '@/features/fleet/pages/FleetDashboardHome';
-import { FleetManagement } from '@/features/fleet/pages/FleetManagement';
-import { DriverManagement } from '@/features/fleet/pages/DriverManagement';
-import { TripManagement } from '@/features/fleet/pages/TripManagement';
-import { FleetAnalytics } from '@/features/fleet/pages/FleetAnalytics';
-import { MaintenanceSchedule } from '@/features/fleet/pages/MaintenanceSchedule';
-import { FleetProfile } from '@/features/fleet/pages/FleetProfile';
+const FleetDashboardHome = lazy(() => import('@/features/fleet/pages/FleetDashboardHome').then(module => ({ default: module.FleetDashboardHome })));
+const FleetManagement = lazy(() => import('@/features/fleet/pages/FleetManagement').then(module => ({ default: module.FleetManagement })));
+const DriverManagement = lazy(() => import('@/features/fleet/pages/DriverManagement').then(module => ({ default: module.DriverManagement })));
+const TripManagement = lazy(() => import('@/features/fleet/pages/TripManagement').then(module => ({ default: module.TripManagement })));
+const FleetAnalytics = lazy(() => import('@/features/fleet/pages/FleetAnalytics').then(module => ({ default: module.FleetAnalytics })));
+const MaintenanceSchedule = lazy(() => import('@/features/fleet/pages/MaintenanceSchedule').then(module => ({ default: module.MaintenanceSchedule })));
+const FleetProfile = lazy(() => import('@/features/fleet/pages/FleetProfile').then(module => ({ default: module.FleetProfile })));
 
 // Admin Pages
-import { AdminDashboardHome } from '@/features/admin/pages/AdminDashboardHome';
-import { UserManagement } from '@/features/admin/pages/UserManagement';
-import { AdminTrucks } from '@/features/admin/pages/AdminTrucks';
-import { AdminShipments } from '@/features/admin/pages/AdminShipments';
-import { ReviewModeration } from '@/features/admin/pages/ReviewModeration';
-import { PlatformAnalytics } from '@/features/admin/pages/PlatformAnalytics';
-import { SystemSettings } from '@/features/admin/pages/SystemSettings';
-import { SupportTickets } from '@/features/admin/pages/SupportTickets';
+const AdminDashboardHome = lazy(() => import('@/features/admin/pages/AdminDashboardHome').then(module => ({ default: module.AdminDashboardHome })));
+const UserManagement = lazy(() => import('@/features/admin/pages/UserManagement').then(module => ({ default: module.UserManagement })));
+const AdminTrucks = lazy(() => import('@/features/admin/pages/AdminTrucks').then(module => ({ default: module.AdminTrucks })));
+const AdminShipments = lazy(() => import('@/features/admin/pages/AdminShipments').then(module => ({ default: module.AdminShipments })));
+const ReviewModeration = lazy(() => import('@/features/admin/pages/ReviewModeration').then(module => ({ default: module.ReviewModeration })));
+const PlatformAnalytics = lazy(() => import('@/features/admin/pages/PlatformAnalytics').then(module => ({ default: module.PlatformAnalytics })));
+const SystemSettings = lazy(() => import('@/features/admin/pages/SystemSettings').then(module => ({ default: module.SystemSettings })));
+const SupportTickets = lazy(() => import('@/features/admin/pages/SupportTickets').then(module => ({ default: module.SupportTickets })));
 
 // Truck Management Pages
-import { TruckDirectory } from '@/features/trucks/pages/TruckDirectory';
-import { TruckDetails } from '@/features/trucks/pages/TruckDetails';
-import { RegisterTruckWizard } from '@/features/trucks/pages/RegisterTruckWizard';
+const TruckDirectory = lazy(() => import('@/features/trucks/pages/TruckDirectory').then(module => ({ default: module.TruckDirectory })));
+const TruckDetails = lazy(() => import('@/features/trucks/pages/TruckDetails').then(module => ({ default: module.TruckDetails })));
+const RegisterTruckWizard = lazy(() => import('@/features/trucks/pages/RegisterTruckWizard').then(module => ({ default: module.RegisterTruckWizard })));
 
 // Shipment Management Pages
-import { ShipmentDirectory } from '@/features/shipments/pages/ShipmentDirectory';
-import { ShipmentDetails } from '@/features/shipments/pages/ShipmentDetails';
-import { CreateShipmentWizard as NewShipmentWizard } from '@/features/shipments/pages/CreateShipmentWizard';
+const ShipmentDirectory = lazy(() => import('@/features/shipments/pages/ShipmentDirectory').then(module => ({ default: module.ShipmentDirectory })));
+const ShipmentDetails = lazy(() => import('@/features/shipments/pages/ShipmentDetails').then(module => ({ default: module.ShipmentDetails })));
+const NewShipmentWizard = lazy(() => import('@/features/shipments/pages/CreateShipmentWizard').then(module => ({ default: module.CreateShipmentWizard })));
 
 // Matching & Bidding Pages
-import { MatchDashboard } from '@/features/matching/pages/MatchDashboard';
-import { RecommendationDirectory } from '@/features/matching/pages/RecommendationDirectory';
-import { BidComparison } from '@/features/matching/pages/BidComparison';
+const MatchDashboard = lazy(() => import('@/features/matching/pages/MatchDashboard').then(module => ({ default: module.MatchDashboard })));
+const RecommendationDirectory = lazy(() => import('@/features/matching/pages/RecommendationDirectory').then(module => ({ default: module.RecommendationDirectory })));
+const BidComparison = lazy(() => import('@/features/matching/pages/BidComparison').then(module => ({ default: module.BidComparison })));
 
 // Live Tracking Pages
-import { TrackingDashboard } from '@/features/tracking/pages/TrackingDashboard';
-import { LiveTripDetails } from '@/features/tracking/pages/LiveTripDetails';
+const TrackingDashboard = lazy(() => import('@/features/tracking/pages/TrackingDashboard').then(module => ({ default: module.TrackingDashboard })));
+const LiveTripDetails = lazy(() => import('@/features/tracking/pages/LiveTripDetails').then(module => ({ default: module.LiveTripDetails })));
 
 // Notification Pages
-import { NotificationCenter } from '@/features/notifications/pages/NotificationCenter';
-import { NotificationPreferences } from '@/features/notifications/pages/NotificationPreferences';
+const NotificationCenter = lazy(() => import('@/features/notifications/pages/NotificationCenter').then(module => ({ default: module.NotificationCenter })));
+const NotificationPreferences = lazy(() => import('@/features/notifications/pages/NotificationPreferences').then(module => ({ default: module.NotificationPreferences })));
 
 // Profile & Settings Pages
-import { UserProfile } from '@/features/profile/pages/UserProfile';
-import { SettingsLayout } from '@/features/profile/layouts/SettingsLayout';
-import { AccountSettings } from '@/features/profile/pages/AccountSettings';
-import { SecuritySettings } from '@/features/profile/pages/SecuritySettings';
-import { GlobalPreferences } from '@/features/profile/pages/GlobalPreferences';
+const UserProfile = lazy(() => import('@/features/profile/pages/UserProfile').then(module => ({ default: module.UserProfile })));
+const SettingsLayout = lazy(() => import('@/features/profile/layouts/SettingsLayout').then(module => ({ default: module.SettingsLayout })));
+const AccountSettings = lazy(() => import('@/features/profile/pages/AccountSettings').then(module => ({ default: module.AccountSettings })));
+const SecuritySettings = lazy(() => import('@/features/profile/pages/SecuritySettings').then(module => ({ default: module.SecuritySettings })));
+const GlobalPreferences = lazy(() => import('@/features/profile/pages/GlobalPreferences').then(module => ({ default: module.GlobalPreferences })));
+
+// Analytics & Reports Pages
+const AnalyticsDashboard = lazy(() => import('@/features/analytics/pages/AnalyticsDashboard').then(module => ({ default: module.AnalyticsDashboard })));
+const ReportsDirectory = lazy(() => import('@/features/analytics/pages/ReportsDirectory').then(module => ({ default: module.ReportsDirectory })));
+const DetailedReport = lazy(() => import('@/features/analytics/pages/DetailedReport').then(module => ({ default: module.DetailedReport })));
 
 export const router = createBrowserRouter([
   {
@@ -123,7 +128,7 @@ export const router = createBrowserRouter([
               // { path: 'shipments/new', element: <CreateShipmentWizard /> },
               { path: 'matching', element: <BusinessMatching /> },
               { path: 'tracking', element: <BusinessTracking /> },
-              { path: 'analytics', element: <BusinessAnalytics /> },
+              { path: 'analytics', element: <AnalyticsDashboard /> },
               { path: 'profile', element: <BusinessProfile /> },
             ]
           },
@@ -135,7 +140,7 @@ export const router = createBrowserRouter([
               { path: 'fleet', element: <FleetManagement /> },
               { path: 'drivers', element: <DriverManagement /> },
               { path: 'trips', element: <TripManagement /> },
-              { path: 'analytics', element: <FleetAnalytics /> },
+              { path: 'analytics', element: <AnalyticsDashboard /> },
               { path: 'maintenance', element: <MaintenanceSchedule /> },
               { path: 'profile', element: <FleetProfile /> },
             ]
@@ -149,7 +154,7 @@ export const router = createBrowserRouter([
               { path: 'admin/trucks', element: <AdminTrucks /> },
               { path: 'admin/shipments', element: <AdminShipments /> },
               { path: 'admin/reviews', element: <ReviewModeration /> },
-              { path: 'admin/analytics', element: <PlatformAnalytics /> },
+              { path: 'admin/analytics', element: <AnalyticsDashboard /> },
               { path: 'admin/settings', element: <SystemSettings /> },
               { path: 'admin/support', element: <SupportTickets /> },
             ]
@@ -199,6 +204,15 @@ export const router = createBrowserRouter([
             element: <RoleProtectedRoute allowedRoles={['Driver', 'Business Owner', 'Fleet Owner', 'Admin', 'Super Admin']} />,
             children: [
               { index: true, element: <NotificationCenter /> }
+            ]
+          },
+          // Shared Reports Routes
+          {
+            path: 'reports',
+            element: <RoleProtectedRoute allowedRoles={['Driver', 'Business Owner', 'Fleet Owner', 'Admin', 'Super Admin']} />,
+            children: [
+              { index: true, element: <ReportsDirectory /> },
+              { path: ':reportType', element: <DetailedReport /> }
             ]
           },
           // Shared Profile & Settings Routes

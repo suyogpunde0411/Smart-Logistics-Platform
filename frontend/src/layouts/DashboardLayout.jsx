@@ -6,6 +6,7 @@ import { Footer } from './Footer';
 import { useBreadcrumb } from '@/features/dashboard/hooks/useBreadcrumb';
 import { ChevronRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { PageLoader } from '@/components/common/PageLoader';
 
 export const DashboardLayout = () => {
   const breadcrumbs = useBreadcrumb();
@@ -42,7 +43,9 @@ export const DashboardLayout = () => {
             )}
             
             {/* Page Content */}
-            <Outlet />
+            <React.Suspense fallback={<PageLoader />}>
+              <Outlet />
+            </React.Suspense>
           </div>
         </main>
         

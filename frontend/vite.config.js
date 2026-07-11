@@ -13,6 +13,21 @@ export default defineConfig({
       '@': path.resolve(__dirname, './src'),
     },
   },
+  build: {
+    rollupOptions: {
+      output: {
+        manualChunks: (id) => {
+          if (id.includes('node_modules')) {
+            if (id.includes('recharts')) return 'vendor-recharts';
+            if (id.includes('leaflet')) return 'vendor-leaflet';
+            if (id.includes('react')) return 'vendor-react-core';
+            return 'vendor-utils';
+          }
+        }
+      }
+    },
+    chunkSizeWarningLimit: 800
+  },
   server: {
     port: 3000,
     proxy: {

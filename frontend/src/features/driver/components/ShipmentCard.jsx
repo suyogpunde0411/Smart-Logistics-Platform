@@ -15,7 +15,7 @@ export const ShipmentCard = ({ shipment, onRequestMatch }) => {
           </div>
           <div>
             <h3 className="font-semibold text-foreground">{shipment.title || 'Standard Shipment'}</h3>
-            <p className="text-xs text-muted-foreground">{shipment.weight} kg • {shipment.type}</p>
+            <p className="text-xs text-muted-foreground">{shipment.weight} kg | {shipment.type}</p>
           </div>
         </div>
         <span className="px-2.5 py-1 text-xs font-medium bg-green-100 text-green-700 rounded-full dark:bg-green-900/30 dark:text-green-400">
@@ -34,7 +34,7 @@ export const ShipmentCard = ({ shipment, onRequestMatch }) => {
         </div>
         <div className="flex items-center gap-2 text-sm font-medium text-foreground">
           <DollarSign className="w-4 h-4 flex-shrink-0 text-muted-foreground" />
-          <span></span>
+          <span>{shipment.budget ? `â‚¹${new Intl.NumberFormat('en-IN').format(shipment.budget)}` : 'Contact for Price'}</span>
         </div>
       </div>
 
