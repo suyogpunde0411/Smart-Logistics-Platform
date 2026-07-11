@@ -1,32 +1,51 @@
 {
-  "name": "smart-logistics-platform-frontend",
+  "name": "frontend",
   "private": true,
   "version": "0.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview"
-  },
-  "dependencies": {
-    "@reduxjs/toolkit": "^2.2.3",
-    "@tanstack/react-query": "^5.29.2",
-    "axios": "^1.6.8",
-    "framer-motion": "^11.0.24",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "react-hook-form": "^7.51.3",
-    "react-redux": "^9.1.1",
-    "react-router-dom": "^6.22.3",
-    "zod": "^3.22.4"
+    "preview": "vite preview",
+    "test": "vitest"
   },
   "devDependencies": {
-    "@types/react": "^18.2.66",
-    "@types/react-dom": "^18.2.22",
-    "@vitejs/plugin-react": "^4.2.1",
-    "autoprefixer": "^10.4.19",
-    "postcss": "^8.4.38",
-    "tailwindcss": "^3.4.3",
-    "vite": "^5.2.0"
+    "@tailwindcss/postcss": "^4.3.2",
+    "@testing-library/dom": "^10.4.1",
+    "@testing-library/jest-dom": "^6.9.1",
+    "@testing-library/react": "^16.3.2",
+    "@vitejs/plugin-react": "^6.0.3",
+    "autoprefixer": "^10.5.2",
+    "eslint": "^9.39.5",
+    "husky": "^9.1.7",
+    "jsdom": "^27.0.1",
+    "msw": "^2.15.0",
+    "postcss": "^8.5.16",
+    "prettier": "^3.9.5",
+    "tailwindcss": "^3.4.19",
+    "tailwindcss-animate": "^1.0.7",
+    "vite": "^8.1.1",
+    "vitest": "^3.2.7"
+  },
+  "dependencies": {
+    "@hookform/resolvers": "^5.4.0",
+    "@reduxjs/toolkit": "^2.12.0",
+    "@tanstack/react-query": "^5.101.2",
+    "axios": "^1.18.1",
+    "clsx": "^2.1.1",
+    "framer-motion": "^12.42.2",
+    "leaflet": "^1.9.4",
+    "lucide-react": "^1.24.0",
+    "react-dropzone": "^15.0.0",
+    "react-hook-form": "^7.81.0",
+    "react-hot-toast": "^2.6.0",
+    "react-leaflet": "^5.0.0",
+    "react-redux": "^9.3.0",
+    "react-router-dom": "^7.18.1",
+    "recharts": "^3.9.2",
+    "redux-persist": "^6.0.0",
+    "socket.io-client": "^4.8.3",
+    "tailwind-merge": "^3.6.0",
+    "zod": "^4.4.3"
   }
 }

@@ -1,0 +1,57 @@
+import {
+  LayoutDashboard,
+  PackageSearch,
+  Map,
+  Truck,
+  MapPin,
+  User,
+  Bell,
+  PackagePlus,
+  Package,
+  Network,
+  BarChart3,
+  Users,
+  Wrench,
+  Settings,
+  Headset
+} from 'lucide-react';
+
+export const navigationConfig = {
+  Driver: [
+    { name: 'Dashboard', path: '/', icon: LayoutDashboard },
+    { name: 'Trips', path: '/trips', icon: Map },
+    { name: 'Available Shipments', path: '/shipments/available', icon: PackageSearch },
+    { name: 'My Truck', path: '/truck/me', icon: Truck },
+    { name: 'Tracking', path: '/tracking', icon: MapPin },
+    { name: 'Profile', path: '/profile', icon: User },
+    { name: 'Notifications', path: '/notifications', icon: Bell },
+  ],
+  'Business Owner': [
+    { name: 'Dashboard', path: '/', icon: LayoutDashboard },
+    { name: 'Create Shipment', path: '/shipments/new', icon: PackagePlus },
+    { name: 'My Shipments', path: '/shipments', icon: Package },
+    { name: 'Matching', path: '/matching', icon: Network },
+    { name: 'Tracking', path: '/tracking', icon: MapPin },
+    { name: 'Analytics', path: '/analytics', icon: BarChart3 },
+    { name: 'Profile', path: '/profile', icon: User },
+  ],
+  'Fleet Owner': [
+    { name: 'Dashboard', path: '/', icon: LayoutDashboard },
+    { name: 'Fleet', path: '/fleet', icon: Truck },
+    { name: 'Drivers', path: '/drivers', icon: Users },
+    { name: 'Trips', path: '/trips', icon: Map },
+    { name: 'Analytics', path: '/analytics', icon: BarChart3 },
+    { name: 'Maintenance', path: '/maintenance', icon: Wrench },
+    { name: 'Profile', path: '/profile', icon: User },
+  ],
+  Admin: [
+    { name: 'Dashboard', path: '/', icon: LayoutDashboard },
+    { name: 'Users', path: '/admin/users', icon: Users },
+    { name: 'Trucks', path: '/admin/trucks', icon: Truck },
+    { name: 'Shipments', path: '/admin/shipments', icon: Package },
+    { name: 'Reviews', path: '/admin/reviews', icon: Network }, // Placeholder icon
+    { name: 'Analytics', path: '/admin/analytics', icon: BarChart3 },
+    { name: 'Settings', path: '/admin/settings', icon: Settings },
+    { name: 'Support', path: '/admin/support', icon: Headset },
+  ],
+};
