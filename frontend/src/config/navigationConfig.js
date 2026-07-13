@@ -52,7 +52,7 @@ export const navigationConfig = {
     { name: 'Users', path: '/admin/users', icon: Users },
     { name: 'Trucks', path: '/admin/trucks', icon: Truck },
     { name: 'Shipments', path: '/admin/shipments', icon: Package },
-    { name: 'Reviews', path: '/admin/reviews', icon: Network }, // Placeholder icon
+    { name: 'Reviews', path: '/admin/reviews', icon: Network }, 
     { name: 'Analytics', path: '/admin/analytics', icon: BarChart3 },
     { name: 'Reports', path: '/reports', icon: FileText },
     { name: 'Settings', path: '/admin/settings', icon: Settings },
