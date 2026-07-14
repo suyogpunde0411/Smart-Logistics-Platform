@@ -22,11 +22,14 @@ export const BaseMap = ({ center = [51.505, -0.09], zoom = 13, markers = [] }) =
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
+
+
         {markers.map((marker, idx) => (
           <Marker key={idx} position={marker.position}>
             {marker.popup && <Popup>{marker.popup}</Popup>}
           </Marker>
         ))}
+        
       </MapContainer>
     </div>
   );
