@@ -30,6 +30,7 @@ export const BaseMap = ({ center = [51.505, -0.09], zoom = 13, markers = [] }) =
           </Marker>
         ))}
         
+        
       </MapContainer>
     </div>
   );
